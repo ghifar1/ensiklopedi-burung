@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Bird extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'species',
+        'description',
+        'image',
+        'endemic',
+        'location',
+        'habitat',
+        'bird_genus_id',
+        'is_deleted',
+    ];
+
+    public function bird_genus()
+    {
+        return $this->belongsTo(BirdGenus::class);
+    }
+}
